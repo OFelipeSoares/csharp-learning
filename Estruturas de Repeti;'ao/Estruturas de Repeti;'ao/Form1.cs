@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,13 +30,8 @@ namespace Estruturas_de_Repeti__ao
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int total = 2;
-            for (int i = 0; i <5 ; i++)
-            {
-                total = total * 2;
-            }
-            MessageBox.Show("O total é " + total);
-            /*
+
+
             double valorInvestido = Convert.ToDouble(inputValor.Text);
             int tempoInvestido = Convert.ToInt32(InputTempo.Text);
 
@@ -43,6 +39,7 @@ namespace Estruturas_de_Repeti__ao
             {
                 valorInvestido = valorInvestido * 1.01;
             }
+            /*
             int i = 1; 
             
              while (i <= tempoInvestido) ;
@@ -50,10 +47,63 @@ namespace Estruturas_de_Repeti__ao
                 valorInvestido = valorInvestido * 1.01;
                 i++;
             }
-            
+            */
 
             MessageBox.Show($"O valor investido ao final dos {InputTempo} meses é {valorInvestido}");
-            */
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int soma = 0;
+
+            for (int i = 0; i <= 100; i++)
+            {
+                soma = soma + i;
+
+            }
+
+            MessageBox.Show(soma.ToString());
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            for (int i = 1; i < 100; i++)
+            {
+                if (i % 3 == 0)
+                {
+                   
+                    listBox1.Items.Add(i);
+
+                }                             
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int soma = 0;
+
+            for(int i = 1;i <= 100; i++)
+            {
+                if(i % 3 != 0) 
+                {
+                    soma += i;
+                
+                }
+            }
+            MessageBox.Show(soma.ToString());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i <= 30; i++)
+            {
+                if(i % 3 == 0 || i % 4 == 0)
+                {
+                    listBox1.Items.Add(i);
+                }
+            }
         }
     }
 }
