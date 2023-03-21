@@ -22,7 +22,7 @@ namespace conta.cs
         {
             Conta c = new Conta();
             c.numero = Convert.ToInt32(numeroConta);
-            c.titular = Convert.ToString(titularConta);
+            //c.titular = Convert.ToString(titularConta);
             c.saldo = Convert.ToDouble(saldoConta);
             bool deuCerto = c.Saca(100.0);
 

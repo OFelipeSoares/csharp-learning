@@ -8,10 +8,11 @@ namespace conta.cs
 {
     internal class Conta
     {
-        public int numero;
-        public string titular;
+        public int numero; //Alterada a nivel de visibilidade do método
         public double saldo;
 
+        public Cliente titular;
+        
         public bool Saca(double valor)
         {
             if (this.saldo >= valor)
@@ -34,5 +35,27 @@ namespace conta.cs
                 destino.Deposita(valor);
             }
         }
+
+        /*
+        public int GetNumero
+        {
+            get { return this.numero; }// o Bloco GET lê um parâmetro
+        }
+        public int SetNumero; 
+        {
+            set { this.numero = value; }// o Bloco SET escreve um parâmetro
+        }*/
+
+
+        // Uma outra forma é utilizar o Auto-Implemented Properties
+        public int Numero { get; private set; }
+        /*public double PegaSaldo()
+        {
+            return this.saldo;
+        }
+        public void ColocaNumero(int numero)
+        {
+            this.numero = numero;
+        }*/
     }
 }

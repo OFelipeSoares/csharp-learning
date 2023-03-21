@@ -5,8 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace conta.cs
-{
-    internal class Clinete
     {
+    internal class Cliente
+    {
+        public string nome;
+        public string cpf;
+        public string rg;
+        public string endereço;
     }
 }
