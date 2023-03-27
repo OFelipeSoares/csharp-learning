@@ -28,11 +28,12 @@ namespace Banco
             this.contas[0].Titular = new Cliente("Victor");
             this.contas[0].Numero = 1;
 
+            this.contas[1] = new ContaPoupanca();
             this.contas[1].Titular = new Cliente("Mauricio");
             this.contas[1].Numero = 2;
-            this.contas[1] = new Conta();
+            
 
-            this.contas[2] = new Conta();
+            this.contas[2] = new ContaCorrente();
             this.contas[2].Titular = new Cliente("Osni");
             this.contas[2].Numero = 3;
 
@@ -45,11 +46,17 @@ namespace Banco
             textoTitular.Text = conta.Titular.Nome;
             textoNumero.Text = Convert.ToString(conta.Numero);
             textoSaldo.Text = Convert.ToString(conta.Saldo); */
+
+            foreach (Conta contas in contas)
+            {
+                comboContas.Items.Add("Titular: " + contas.Titular.Nome);
+            }
         }
 
         private void botaoDeposito_Click(object sender, EventArgs e)
         {
-            int indice = Convert.ToInt32(textoIndice.Text);
+            //int indice = Convert.ToInt32(textoIndice.Text);
+            int indice = comboContas.SelectedIndex;
 
             Conta selecionada = this.contas[indice];
 
@@ -67,7 +74,8 @@ namespace Banco
         private void botaoSaque_Click(object sender, EventArgs e)
         {
 
-            int indice = Convert.ToInt32(textoIndice.Text);
+            //int indice = Convert.ToInt32(textoIndice.Text);
+            int indice = comboContas.SelectedIndex;
 
             Conta selecionada = this.contas[indice];
 
@@ -90,5 +98,14 @@ namespace Banco
             textoTitular.Text = selecionada.Titular.Nome;
             textoSaldo.Text = Convert.ToString(selecionada.Saldo);
         }
+
+        private void comboContas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = comboContas.SelectedIndex;
+            Conta selecionada = contas[indice];
+
+            textoTitular.Text = selecionada.Titular.Nome;
+            textoNumero.Text = Convert.ToString(selecionada.Numero);
+            textoSaldo.Text = Convert.ToString(selecionada.Saldo);        }
     }
 }

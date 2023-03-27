@@ -8,7 +8,7 @@
         }
         public override void Deposita(double valor)
         {
-            base.Deposita(valor + 0.10);
+            base.Deposita(valor - 0.10);
         }
     }
 }
