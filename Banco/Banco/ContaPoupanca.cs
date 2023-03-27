@@ -2,24 +2,13 @@
 
 namespace Banco
 {
-    public class Conta
-    {
-        public Conta()
+    public class ContaPoupanca : Conta // Os : Representam herança entre classes. Desta forma, basta escrever a parte do código que sofrerá alteração 
+    { 
+    
+        public override void Saca(double valor)
         {
+            base.Saca(valor + 0.10);
         }
-
-        public int Numero { get; set; }
-        public double Saldo { get; private set; }
-        public Cliente Titular { get; set; }
-
-        internal void Deposita(double valor)
-        {
-            this.Saldo += valor;
-        }
-
-        internal void Saca(double valor)
-        {
-            this.Saldo -= valor;
-        }
-    }
+    
+    } 
 }

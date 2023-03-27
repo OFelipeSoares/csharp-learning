@@ -39,7 +39,11 @@
             this.botaoDeposito = new System.Windows.Forms.Button();
             this.botaoSaque = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textoIndice = new System.Windows.Forms.TextBox();
+            this.botaoBusca = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textoTitular
@@ -138,12 +142,40 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(258, 115);
+            this.groupBox1.Location = new System.Drawing.Point(173, 148);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(465, 406);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Conta";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.botaoBusca);
+            this.groupBox2.Controls.Add(this.textoIndice);
+            this.groupBox2.Location = new System.Drawing.Point(179, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(459, 130);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Busca de Conta";
+            // 
+            // textoIndice
+            // 
+            this.textoIndice.Location = new System.Drawing.Point(49, 57);
+            this.textoIndice.Name = "textoIndice";
+            this.textoIndice.Size = new System.Drawing.Size(200, 22);
+            this.textoIndice.TabIndex = 0;
+            // 
+            // botaoBusca
+            // 
+            this.botaoBusca.Location = new System.Drawing.Point(278, 56);
+            this.botaoBusca.Name = "botaoBusca";
+            this.botaoBusca.Size = new System.Drawing.Size(135, 23);
+            this.botaoBusca.TabIndex = 1;
+            this.botaoBusca.Text = "Buscar";
+            this.botaoBusca.UseVisualStyleBackColor = true;
+            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
             // Form1
             // 
@@ -151,12 +183,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1014, 698);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -174,6 +209,9 @@
         private System.Windows.Forms.Button botaoDeposito;
         private System.Windows.Forms.Button botaoSaque;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button botaoBusca;
+        private System.Windows.Forms.TextBox textoIndice;
     }
 }
 

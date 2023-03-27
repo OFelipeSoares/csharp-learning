@@ -9,7 +9,7 @@ namespace Banco
         public double Saldo { get; private set; }
         public Cliente Titular { get; set; }
         public int Tipo { get; set; }
-        internal void Deposita(double valor)
+        public virtual void Deposita(double valor)
         {
             this.Saldo += valor;
         }
