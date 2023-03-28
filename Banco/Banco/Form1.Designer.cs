@@ -40,11 +40,15 @@
             this.botaoSaque = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textoIndice = new System.Windows.Forms.TextBox();
-            this.botaoBusca = new System.Windows.Forms.Button();
             this.comboContas = new System.Windows.Forms.ComboBox();
+            this.botaoBusca = new System.Windows.Forms.Button();
+            this.textoIndice = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.comboDestinoTransferencia = new System.Windows.Forms.ComboBox();
+            this.botaotransfere = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // textoTitular
@@ -162,12 +166,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Busca de Conta";
             // 
-            // textoIndice
+            // comboContas
             // 
-            this.textoIndice.Location = new System.Drawing.Point(29, 34);
-            this.textoIndice.Name = "textoIndice";
-            this.textoIndice.Size = new System.Drawing.Size(200, 22);
-            this.textoIndice.TabIndex = 0;
+            this.comboContas.FormattingEnabled = true;
+            this.comboContas.Location = new System.Drawing.Point(29, 81);
+            this.comboContas.Name = "comboContas";
+            this.comboContas.Size = new System.Drawing.Size(200, 24);
+            this.comboContas.TabIndex = 14;
+            this.comboContas.SelectedIndexChanged += new System.EventHandler(this.comboContas_SelectedIndexChanged);
             // 
             // botaoBusca
             // 
@@ -179,14 +185,42 @@
             this.botaoBusca.UseVisualStyleBackColor = true;
             this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
             // 
-            // comboContas
+            // textoIndice
             // 
-            this.comboContas.FormattingEnabled = true;
-            this.comboContas.Location = new System.Drawing.Point(29, 81);
-            this.comboContas.Name = "comboContas";
-            this.comboContas.Size = new System.Drawing.Size(200, 24);
-            this.comboContas.TabIndex = 14;
-            this.comboContas.SelectedIndexChanged += new System.EventHandler(this.comboContas_SelectedIndexChanged);
+            this.textoIndice.Location = new System.Drawing.Point(29, 34);
+            this.textoIndice.Name = "textoIndice";
+            this.textoIndice.Size = new System.Drawing.Size(200, 22);
+            this.textoIndice.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.botaotransfere);
+            this.groupBox3.Controls.Add(this.comboDestinoTransferencia);
+            this.groupBox3.Location = new System.Drawing.Point(702, 17);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(275, 125);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "groupBox3";
+            // 
+            // comboDestinoTransferencia
+            // 
+            this.comboDestinoTransferencia.FormattingEnabled = true;
+            this.comboDestinoTransferencia.Location = new System.Drawing.Point(45, 29);
+            this.comboDestinoTransferencia.Name = "comboDestinoTransferencia";
+            this.comboDestinoTransferencia.Size = new System.Drawing.Size(195, 24);
+            this.comboDestinoTransferencia.TabIndex = 0;
+            this.comboDestinoTransferencia.SelectedIndexChanged += new System.EventHandler(this.comboDestinoTransferencia_SelectedIndexChanged);
+            // 
+            // botaotransfere
+            // 
+            this.botaotransfere.Location = new System.Drawing.Point(67, 76);
+            this.botaotransfere.Name = "botaotransfere";
+            this.botaotransfere.Size = new System.Drawing.Size(139, 23);
+            this.botaotransfere.TabIndex = 1;
+            this.botaotransfere.Text = "button1";
+            this.botaotransfere.UseVisualStyleBackColor = true;
+            this.botaotransfere.Click += new System.EventHandler(this.botaotransfere_Click);
             // 
             // Form1
             // 
@@ -194,6 +228,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1014, 698);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -203,6 +238,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -224,6 +260,9 @@
         private System.Windows.Forms.Button botaoBusca;
         private System.Windows.Forms.TextBox textoIndice;
         private System.Windows.Forms.ComboBox comboContas;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button botaotransfere;
+        private System.Windows.Forms.ComboBox comboDestinoTransferencia;
     }
 }
 

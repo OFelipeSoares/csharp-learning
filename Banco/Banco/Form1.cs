@@ -50,6 +50,7 @@ namespace Banco
             foreach (Conta contas in contas)
             {
                 comboContas.Items.Add("Titular: " + contas.Titular.Nome);
+                comboDestinoTransferencia.Items.Add("Titular: " + contas.Titular.Nome);
             }
         }
 
@@ -107,5 +108,26 @@ namespace Banco
             textoTitular.Text = selecionada.Titular.Nome;
             textoNumero.Text = Convert.ToString(selecionada.Numero);
             textoSaldo.Text = Convert.ToString(selecionada.Saldo);        }
+
+        private void comboDestinoTransferencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = comboDestinoTransferencia.SelectedIndex;
+            Conta selecionada = contas[indice];
+        }
+
+        private void botaotransfere_Click(object sender, EventArgs e)
+        {
+            int destino = comboDestinoTransferencia.SelectedIndex;
+            int origem = comboContas.SelectedIndex;
+
+            Conta contaOrigem = this.contas[origem];
+            Conta contaDestino = this.contas[destino];
+
+            double valor = Convert.ToDouble(textoValor.Text);
+            contaOrigem.Saca(valor);
+            contaDestino.Deposita(valor);
+
+            textoSaldo.Text = Convert.ToString(contaOrigem.Saldo);
+        }
     }
 }
