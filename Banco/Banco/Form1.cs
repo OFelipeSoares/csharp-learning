@@ -14,6 +14,15 @@ namespace Banco
     public partial class Form1 : Form
     {
         private Conta[] contas;
+
+        private int numeroDeContas;
+
+        public void AdicionaConta(Conta conta)
+        {
+            this.contas[this.numeroDeContas] = conta;
+            this.numeroDeContas++;
+            comboContas.Items.Add("Titular: " + conta.Titular.Nome);
+        }
         public Form1()
         {
             InitializeComponent();
@@ -128,6 +137,13 @@ namespace Banco
             contaDestino.Deposita(valor);
 
             textoSaldo.Text = Convert.ToString(contaOrigem.Saldo);
+        }
+
+        private void botaoNovaConta_Click(object sender, EventArgs e)
+        {
+            FormCadastroConta formularioDeCaastro = new FormCadastroConta(this);
+
+            formularioDeCaastro.ShowDialog();
         }
     }
 }
