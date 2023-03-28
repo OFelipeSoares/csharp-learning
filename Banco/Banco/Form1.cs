@@ -30,21 +30,28 @@ namespace Banco
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
-            contas = new Conta[3];
+
+            //contas = new Conta[3];
+            this.contas = new Conta[100];
 
             this.contas[0] = new Conta();
             this.contas[0].Titular = new Cliente("Victor");
             this.contas[0].Numero = 1;
+            //this.numeroDeContas++;
+            this.AdicionaConta(c1);
 
             this.contas[1] = new ContaPoupanca();
             this.contas[1].Titular = new Cliente("Mauricio");
             this.contas[1].Numero = 2;
-            
+            //this.numeroDeContas++;
+            this.AdicionaConta(c2);
+
 
             this.contas[2] = new ContaCorrente();
             this.contas[2].Titular = new Cliente("Osni");
             this.contas[2].Numero = 3;
+            //this.numeroDeContas++;
+            this.AdicionaConta(c3);
 
             /* this.conta = new Conta();
             Conta conta = new Conta();
