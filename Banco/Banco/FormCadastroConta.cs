@@ -25,7 +25,8 @@ namespace Banco
            classList = new List<Type>
             {
                 typeof(ContaCorrente),
-                typeof(ContaPoupanca)
+                typeof(ContaPoupanca),
+                typeof(ContaInvestimento)
             };
 
            

@@ -9,6 +9,11 @@ namespace Banco
         {
             base.Saca(valor + 0.10);
         }
+
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.02; 
+        }
     
     } 
 }

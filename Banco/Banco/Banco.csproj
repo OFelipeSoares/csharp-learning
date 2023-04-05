@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cliente.cs" />
+    <Compile Include="ContaCorrente - Copy.cs" />
     <Compile Include="ContaCorrente.cs" />
     <Compile Include="ContaPoupanca.cs" />
     <Compile Include="Conta.cs" />
