@@ -4,17 +4,50 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Banco
 {
-    public partial class Form2 : Form
+    public partial class FormCadastroConta : Form
     {
-        public Form2()
+        private Form1 formPrincipal;
+
+        List<Type> classList;
+
+        public FormCadastroConta(Form1 formPrincipal)
         {
+            this.formPrincipal = formPrincipal;
             InitializeComponent();
+
+           classList = new List<Type>
+            {
+                typeof(ContaCorrente),
+                typeof(ContaPoupanca)
+            };
+
+           
+            comboTipoConta.DataSource = classList; 
+
+            comboTipoConta.DisplayMember = "Name";
+            
+
+        } 
+        private void botaoCadastro_Click(object sender, EventArgs e)
+        {
+            Type selectedType = (Type) comboTipoConta.SelectedItem;
+            Conta novaConta = (Conta)Activator.CreateInstance(selectedType);
+
+            //Conta novaConta = new ContaCorrente();
+            novaConta.Titular = new Cliente(textoTitular.Text);
+            novaConta.Numero = Convert.ToInt32(textoNumero.Text);
+
+            this.formPrincipal.AdicionaConta(novaConta);
+
+            MessageBox.Show("Sucesso! Você pode fechar essa aba");
+
         }
     }
 }

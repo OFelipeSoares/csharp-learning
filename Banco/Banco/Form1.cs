@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,60 +14,56 @@ namespace Banco
 {
     public partial class Form1 : Form
     {
-        private Conta[] contas;
+        //private Conta[] contas;
+        private List<Conta> contas = new List<Conta>();
 
         private int numeroDeContas;
 
         public void AdicionaConta(Conta conta)
         {
-            this.contas[this.numeroDeContas] = conta;
-            this.numeroDeContas++;
+            //this.contas[this.numeroDeContas] = conta;
+            //this.numeroDeContas++;
+            contas.Add(conta);
             comboContas.Items.Add("Titular: " + conta.Titular.Nome);
         }
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();   
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
             //contas = new Conta[3];
-            this.contas = new Conta[100];
+            this.numeroDeContas = 0;
+            //this.contas = new Conta[100];
 
-            this.contas[0] = new Conta();
-            this.contas[0].Titular = new Cliente("Victor");
-            this.contas[0].Numero = 1;
-            //this.numeroDeContas++;
+            Conta c1 = new Conta();
+            c1.Titular = new Cliente("Victor");
+            c1.Numero = 1;
             this.AdicionaConta(c1);
 
-            this.contas[1] = new ContaPoupanca();
-            this.contas[1].Titular = new Cliente("Mauricio");
-            this.contas[1].Numero = 2;
-            //this.numeroDeContas++;
+            Conta c2 = new Conta();
+            c2.Titular = new Cliente("Mauricio");
+            c2.Numero = 2;
             this.AdicionaConta(c2);
 
 
-            this.contas[2] = new ContaCorrente();
-            this.contas[2].Titular = new Cliente("Osni");
-            this.contas[2].Numero = 3;
-            //this.numeroDeContas++;
+            Conta c3 = new Conta();
+            c3.Titular = new Cliente("Osni");
+            c3.Numero = 3;
             this.AdicionaConta(c3);
 
-            /* this.conta = new Conta();
-            Conta conta = new Conta();
-            conta.Numero = 1;
-            Cliente cliente = new Cliente("Victor");
-            conta.Titular = cliente;
-
-            textoTitular.Text = conta.Titular.Nome;
-            textoNumero.Text = Convert.ToString(conta.Numero);
-            textoSaldo.Text = Convert.ToString(conta.Saldo); */
-
-            foreach (Conta contas in contas)
+            
+            foreach (Conta c in contas)
             {
-                comboContas.Items.Add("Titular: " + contas.Titular.Nome);
-                comboDestinoTransferencia.Items.Add("Titular: " + contas.Titular.Nome);
+                if (c != null)
+                {
+
+                    //comboContas.Items.Add("Titular: " + c.Titular.Nome);
+                    comboDestinoTransferencia.Items.Add("Titular: " + c.Titular.Nome);
+                }
+
             }
         }
 
@@ -75,17 +72,22 @@ namespace Banco
             //int indice = Convert.ToInt32(textoIndice.Text);
             int indice = comboContas.SelectedIndex;
 
-            Conta selecionada = this.contas[indice];
+            if (indice >= 0)
+            {
 
-            double valor = Convert.ToDouble(textoValor.Text);
-            selecionada.Deposita(valor);
-            textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+                Conta selecionada = this.contas[indice];
 
-            /*string valorDigitado = textoValor.Text;
-            double valorOperação = Convert.ToDouble(valorDigitado);
-            this.conta.Deposita(valorOperação);
-            textoSaldo.Text = Convert.ToString(this.conta.Saldo);
-            MessageBox.Show("Sucesso");*/
+                double valor = Convert.ToDouble(textoValor.Text);
+                selecionada.Deposita(valor);
+                textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+
+                /*string valorDigitado = textoValor.Text;
+                double valorOperação = Convert.ToDouble(valorDigitado);
+                this.conta.Deposita(valorOperação);
+                textoSaldo.Text = Convert.ToString(this.conta.Saldo);
+                MessageBox.Show("Sucesso");*/
+
+            }
         }
 
         private void botaoSaque_Click(object sender, EventArgs e)
@@ -136,12 +138,13 @@ namespace Banco
             int destino = comboDestinoTransferencia.SelectedIndex;
             int origem = comboContas.SelectedIndex;
 
-            Conta contaOrigem = this.contas[origem];
-            Conta contaDestino = this.contas[destino];
+            Conta contaOrigem = contas[origem];
+            Conta contaDestino = contas[destino];
 
             double valor = Convert.ToDouble(textoValor.Text);
-            contaOrigem.Saca(valor);
-            contaDestino.Deposita(valor);
+            //contaOrigem.Saca(valor);
+            //contaDestino.Deposita(valor);
+            contaOrigem.Transfere(valor, contaDestino);
 
             textoSaldo.Text = Convert.ToString(contaOrigem.Saldo);
         }

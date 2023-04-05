@@ -29,7 +29,9 @@ namespace Banco
             */
         }
 
-        
-        
+        internal void Transfere(double valor, Conta contaDestino)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
