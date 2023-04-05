@@ -38,18 +38,18 @@ namespace Banco
             this.numeroDeContas = 0;
             //this.contas = new Conta[100];
 
-            Conta c1 = new Conta();
+            Conta c1 = new ContaCorrente();
             c1.Titular = new Cliente("Victor");
             c1.Numero = 1;
             this.AdicionaConta(c1);
 
-            Conta c2 = new Conta();
+            Conta c2 = new ContaPoupanca();
             c2.Titular = new Cliente("Mauricio");
             c2.Numero = 2;
             this.AdicionaConta(c2);
 
 
-            Conta c3 = new Conta();
+            Conta c3 = new ContaPoupanca();
             c3.Titular = new Cliente("Osni");
             c3.Numero = 3;
             this.AdicionaConta(c3);

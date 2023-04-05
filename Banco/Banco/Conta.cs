@@ -2,7 +2,8 @@
 
 namespace Banco
 {
-    public class Conta
+    //Mudança da class conta para abstract. A partir de agora objetos do tipo new Conta() não podem mais ser criados
+    public abstract class Conta
     {
 
         public int Numero { get; set; }

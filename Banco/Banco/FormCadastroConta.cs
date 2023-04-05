@@ -46,7 +46,9 @@ namespace Banco
 
             this.formPrincipal.AdicionaConta(novaConta);
 
-            MessageBox.Show("Sucesso! Você pode fechar essa aba");
+            MessageBox.Show("Conta criada com sucesso! Você já pode fechar essa aba");
+
+
 
         }
     }
